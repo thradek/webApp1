@@ -43,11 +43,10 @@
 			render() {
 				let msg = this.state.message;
 				return (
-
 					<div>
 					<label>Name: <input ref="nameInput" type="text" /></label>
 					<button onClick="this.buttonClicked>Click Me!</button>
-					<MessageBox type='{msg.type}' message="{msg.body}" />
+					<MessageBox type={msg.type} message={msg.body} />
 					</div>
 				)
 			}
