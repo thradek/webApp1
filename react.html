@@ -45,7 +45,7 @@
 				return (
 					<div>
 					<label>Name: <input ref="nameInput" type="text" /></label>
-					<button onClick="this.buttonClicked>Click Me!</button>
+					<button onClick={this.buttonClicked}>Click Me!</button>
 					<MessageBox type={msg.type} message={msg.body} />
 					</div>
 				)
@@ -54,9 +54,8 @@
 
 		class MessageBox extends React.Component {
 			render() {
-				let myclasses = "messageBox " + (!this.props.type ? "hidden" : this.props.type);
 				return (
-					<div className={myclasses}>
+					<div className={"messageBox " + (this.props.type || "hidden")}>
 						{this.props.message}
 					</div>
 				)
