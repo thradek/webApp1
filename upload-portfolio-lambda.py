@@ -36,13 +36,17 @@ def lambda_handler(event, context):
                 portfolio_bucket.upload_fileobj(obj, nm, ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
                 portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
                 
-        topic.publish(Subject="Portfolio Deployed", Message="Portfolio Deployed successfully")
+	extra = 'Not from Pipeline: '
         if job:
             codepipeline = boto3.client('codepipeline')
             codepipeline.put_job_success_result(jobId=job["id"])
+            extra = 'From pipeline: '
+
+        topic.publish(Subject="Portfolio Deployed", Message="Portfolio Deployed successfully" + extra + str(location))
+
         return {
             'statusCode': 200,
-            'body': json.dumps('Hello from Lambda!')
+            'body': json.dumps('Completed not from pipeline')
         }
 
     except:
