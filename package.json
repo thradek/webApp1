@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/thradek/webApp1#readme",
   "dependencies": {
+    "config": "^3.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
@@ -35,5 +36,9 @@
     "react-test-renderer": "^16.2.0",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.13"
+  }
+  "jest":{
+	"verbose":true,
+	"testURL":"http://localhost/"
   }
 }
