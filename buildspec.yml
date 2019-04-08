@@ -4,6 +4,9 @@ phases:
                 commands:
                         - npm install
                         - npm test
+                        - cp config/api.js node_modules/jsdom/lib/api.js
+                        - cp config/defaults.js node_modules/jest-config/build/defaults.js
+                        - cp config/valid_config.js node_modules/jest-config/build/valid_config.js
         build:
                 commands:
                         - npm install
