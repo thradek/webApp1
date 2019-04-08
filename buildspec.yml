@@ -6,7 +6,6 @@ phases:
                         - npm test
         build:
                 commands:
-                        - npm install webpack
                         - npm install
                         - npm run webpack
 artifacts:
